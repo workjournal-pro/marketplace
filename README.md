@@ -28,21 +28,21 @@ For Claude Desktop, Claude Web, and other MCP-only clients, add the remote MCP s
 ## Quick start
 
 1. Install (see above)
-2. Run `/journal login` to authenticate via browser-based OAuth
-3. Run `/journal` to write your first entry
+2. Run `/workjournal login` to authenticate via browser-based OAuth
+3. Run `/workjournal` to write your first entry
 
 ## Commands
 
 | Command | Description |
 |---------|-------------|
-| `/journal` | Write a new entry (auto-title from conversation) |
-| `/journal <title>` | Write a new entry with explicit title |
-| `/journal search <query>` | Search past entries |
-| `/journal last [N]` | Show recent entries |
-| `/journal check` | Find entries relevant to current work |
-| `/journal login` | Authenticate with Workjournal |
-| `/journal init` | Initialize session and select journal |
-| `/journal help` | Print command reference |
+| `/workjournal` | Write a new entry (auto-title from conversation) |
+| `/workjournal <title>` | Write a new entry with explicit title |
+| `/workjournal search <query>` | Search past entries |
+| `/workjournal last [N]` | Show recent entries |
+| `/workjournal check` | Find entries relevant to current work |
+| `/workjournal login` | Authenticate with Workjournal |
+| `/workjournal init` | Initialize session and select journal |
+| `/workjournal help` | Print command reference |
 
 ## Compatible agents
 
