@@ -8,8 +8,10 @@ A cloud-hosted development journal for AI agents and developers. Write entries, 
 
 ```shell
 /plugin marketplace add workjournal-pro/marketplace
-/plugin install journal@workjournal
+/plugin install workjournal@workjournal
 ```
+
+> Renamed from `journal@workjournal` in v0.10.0. If you previously installed under the old name, run `/plugin uninstall journal@workjournal` first.
 
 ### Other agents (Open Agent Skills)
 

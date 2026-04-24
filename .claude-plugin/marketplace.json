@@ -8,10 +8,10 @@
   },
   "plugins": [
     {
-      "name": "journal",
+      "name": "workjournal",
       "source": "./",
       "description": "Development journal skill — write entries, search past decisions, review recent work",
-      "version": "0.9.0",
+      "version": "0.10.0",
       "author": {
         "name": "Venture Squad LTD"
       },
