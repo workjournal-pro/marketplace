@@ -1,0 +1,15 @@
+{
+  "name": "workjournal",
+  "version": "0.10.1",
+  "description": "Cloud-hosted development journal for AI agents and developers",
+  "mcpServers": {
+    "workjournal": {
+      "command": "npx",
+      "args": ["-y", "@workjournal/mcp-server"],
+      "env": {
+        "WORKJOURNAL_API_URL": "https://api.workjournal.pro",
+        "WORKJOURNAL_API_KEY": ""
+      }
+    }
+  }
+}
