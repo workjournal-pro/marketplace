@@ -1,0 +1,20 @@
+{
+  "name": "workjournal",
+  "interface": {
+    "displayName": "Workjournal"
+  },
+  "plugins": [
+    {
+      "name": "workjournal",
+      "source": {
+        "source": "local",
+        "path": "./plugins/workjournal"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_USE"
+      },
+      "category": "Productivity"
+    }
+  ]
+}

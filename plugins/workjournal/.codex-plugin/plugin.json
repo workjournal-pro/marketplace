@@ -1,0 +1,39 @@
+{
+  "name": "workjournal",
+  "version": "0.1.0",
+  "description": "Cloud-hosted development journal for AI coding agents and developers",
+  "author": {
+    "name": "Venture Squad LTD",
+    "url": "https://workjournal.pro"
+  },
+  "homepage": "https://workjournal.pro",
+  "repository": "https://github.com/workjournal-pro/marketplace",
+  "license": "MIT",
+  "keywords": [
+    "journal",
+    "development",
+    "decisions",
+    "context"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Workjournal",
+    "shortDescription": "Capture decisions and search project history.",
+    "longDescription": "Connect Codex to Workjournal through the Workjournal CLI. Capture completed work, search past decisions, review recent entries, and manage journals without adding an MCP server.",
+    "developerName": "Venture Squad LTD",
+    "category": "Productivity",
+    "capabilities": [
+      "Read",
+      "Write",
+      "Interactive"
+    ],
+    "websiteURL": "https://workjournal.pro",
+    "privacyPolicyURL": "https://workjournal.pro/privacy/",
+    "termsOfServiceURL": "https://workjournal.pro/terms/",
+    "defaultPrompt": [
+      "Log what we accomplished to Workjournal.",
+      "Search Workjournal for relevant past decisions.",
+      "Show the latest Workjournal entry."
+    ]
+  }
+}

@@ -13,6 +13,15 @@ A cloud-hosted development journal for AI agents and developers. Write entries, 
 
 > Renamed from `journal@workjournal` in v0.10.0. If you previously installed under the old name, run `/plugin uninstall journal@workjournal` first.
 
+### Codex (marketplace)
+
+```shell
+codex plugin marketplace add workjournal-pro/marketplace
+codex plugin add workjournal@workjournal
+```
+
+Start a new Codex thread after installation so the Workjournal skill is loaded. Ask Codex to log completed work, search past decisions, or review recent entries. On first use, ask Codex to log in to Workjournal; it drives the same browser-based OAuth flow as the CLI.
+
 ### Other agents (Open Agent Skills)
 
 Download the latest release zip from [github.com/workjournal-pro/skill](https://github.com/workjournal-pro/skill/releases) and extract it into your agent's skills directory, or search for **Workjournal** in your agent's skill marketplace.
@@ -43,7 +52,6 @@ For Claude Desktop, Claude Web, and other MCP-only clients, add the remote MCP s
 | `/workjournal last [N]` | Show recent entries |
 | `/workjournal check` | Find entries relevant to current work |
 | `/workjournal login` | Authenticate with Workjournal |
-| `/workjournal init` | Initialize session and select journal |
 | `/workjournal help` | Print command reference |
 
 ## Compatible agents
