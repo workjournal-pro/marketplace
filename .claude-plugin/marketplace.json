@@ -20,6 +20,34 @@
       "license": "MIT",
       "keywords": ["journal", "development", "decisions", "context"],
       "category": "productivity"
+    },
+    {
+      "name": "wj-gh",
+      "source": "./wj-gh",
+      "description": "End-to-end GitHub change workflow — branch, PR, CI/review-bot monitoring, merge",
+      "version": "0.1.0",
+      "author": {
+        "name": "Venture Squad LTD"
+      },
+      "homepage": "https://workjournal.pro",
+      "repository": "https://github.com/workjournal-pro/marketplace",
+      "license": "MIT",
+      "keywords": ["github", "pull-request", "workflow", "ci", "code-review"],
+      "category": "productivity"
+    },
+    {
+      "name": "prime",
+      "source": "./prime",
+      "description": "Prime the session — repository files, recent journal entries, branch status",
+      "version": "0.1.0",
+      "author": {
+        "name": "Venture Squad LTD"
+      },
+      "homepage": "https://workjournal.pro",
+      "repository": "https://github.com/workjournal-pro/marketplace",
+      "license": "MIT",
+      "keywords": ["git", "context", "session", "prime"],
+      "category": "productivity"
     }
   ]
 }

@@ -1,0 +1,33 @@
+{
+  "name": "wj-gh",
+  "version": "0.1.0",
+  "description": "End-to-end GitHub change workflow — branch, PR, CI/review-bot monitoring, merge",
+  "author": {
+    "name": "Venture Squad LTD",
+    "url": "https://workjournal.pro"
+  },
+  "homepage": "https://workjournal.pro",
+  "repository": "https://github.com/workjournal-pro/marketplace",
+  "license": "MIT",
+  "keywords": [
+    "github",
+    "pull-request",
+    "workflow",
+    "ci",
+    "code-review"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "wj-gh",
+    "shortDescription": "Drive a change from branch to merged PR.",
+    "longDescription": "End-to-end GitHub workflow: scope, branch, commit with tests, open a PR, watch CI, respond to a code-review bot, fix mechanical failures, and merge. Provider-agnostic; treats CodeRabbit as an optional integration.",
+    "developerName": "Venture Squad LTD",
+    "category": "Productivity",
+    "capabilities": [
+      "Read",
+      "Write",
+      "Interactive"
+    ],
+    "websiteURL": "https://workjournal.pro"
+  }
+}

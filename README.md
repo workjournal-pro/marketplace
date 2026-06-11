@@ -32,15 +32,50 @@ For Claude Desktop, Claude Web, and other MCP-only clients, add the remote MCP s
 
 - **Server URL:** `https://mcp.workjournal.pro`
 
+## More plugins in this marketplace
+
+Alongside the Workjournal journal plugin, this marketplace hosts two standalone workflow skills. They install independently — you don't need the Workjournal account or login to use them.
+
+### `wj-gh` — GitHub change workflow
+
+Drives a change from branch to merged PR: scope → optional issue → branch → commit (with tests) → open PR → watch CI → respond to a code-review bot → fix mechanical failures → reply inline → merge. Provider-agnostic; treats CodeRabbit as an optional integration.
+
+```shell
+# Claude Code
+/plugin install wj-gh@workjournal
+
+# Codex
+codex plugin add wj-gh@workjournal
+```
+
+Open Agent Skills: [github.com/workjournal-pro/wj-gh](https://github.com/workjournal-pro/wj-gh/releases).
+
+### `prime` — session primer
+
+Lists tracked and changed files, surfaces the last few journal entries (Workjournal or devjournal), and reports current branch status (open PR, merged, or in-progress) at the start of a session.
+
+```shell
+# Claude Code
+/plugin install prime@workjournal
+
+# Codex
+codex plugin add prime@workjournal
+```
+
+Open Agent Skills: [github.com/workjournal-pro/prime](https://github.com/workjournal-pro/prime/releases).
+
 ## Prerequisites
 
-- An account at [app.workjournal.pro](https://app.workjournal.pro)
+- **Workjournal plugin:** an account at [app.workjournal.pro](https://app.workjournal.pro). The `/workjournal login` flow authenticates against it.
+- **`wj-gh` and `prime`:** no Workjournal account or login — they only need the `git` and `gh` CLIs available in your environment.
 
-## Quick start
+## Quick start (Workjournal plugin)
 
 1. Install (see above)
 2. Run `/workjournal login` to authenticate via browser-based OAuth
 3. Run `/workjournal` to write your first entry
+
+`wj-gh` and `prime` work as soon as they're installed — invoke `/wj-gh help` or `/prime` directly.
 
 ## Commands
 

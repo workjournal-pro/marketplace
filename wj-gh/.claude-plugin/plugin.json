@@ -1,0 +1,13 @@
+{
+  "name": "wj-gh",
+  "version": "0.1.0",
+  "description": "End-to-end GitHub change workflow — branch, PR, CI/review-bot monitoring, merge",
+  "author": {
+    "name": "Venture Squad LTD",
+    "url": "https://workjournal.pro"
+  },
+  "homepage": "https://workjournal.pro",
+  "repository": "https://github.com/workjournal-pro/marketplace",
+  "license": "MIT",
+  "keywords": ["github", "pull-request", "workflow", "ci", "code-review"]
+}

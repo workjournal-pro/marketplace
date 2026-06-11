@@ -15,6 +15,30 @@
         "authentication": "ON_USE"
       },
       "category": "Productivity"
+    },
+    {
+      "name": "wj-gh",
+      "source": {
+        "source": "local",
+        "path": "./plugins/wj-gh"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "NONE"
+      },
+      "category": "Productivity"
+    },
+    {
+      "name": "prime",
+      "source": {
+        "source": "local",
+        "path": "./plugins/prime"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "NONE"
+      },
+      "category": "Productivity"
     }
   ]
 }

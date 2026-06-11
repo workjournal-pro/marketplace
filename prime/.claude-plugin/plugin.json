@@ -1,0 +1,13 @@
+{
+  "name": "prime",
+  "version": "0.1.0",
+  "description": "Prime the session — repository files, recent journal entries, branch status",
+  "author": {
+    "name": "Venture Squad LTD",
+    "url": "https://workjournal.pro"
+  },
+  "homepage": "https://workjournal.pro",
+  "repository": "https://github.com/workjournal-pro/marketplace",
+  "license": "MIT",
+  "keywords": ["git", "context", "session", "prime"]
+}
