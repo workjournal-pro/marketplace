@@ -1,6 +1,6 @@
 {
   "name": "workjournal",
-  "version": "0.32.0",
+  "version": "0.33.4",
   "description": "Cloud-hosted development journal for AI agents and developers",
   "mcpServers": {
     "workjournal": {
