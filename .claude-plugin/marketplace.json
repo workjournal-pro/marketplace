@@ -25,7 +25,7 @@
       "name": "wj-gh",
       "source": "./wj-gh",
       "description": "End-to-end GitHub change workflow — branch, PR, CI/review-bot monitoring, merge",
-      "version": "0.1.0",
+      "version": "0.2.0",
       "author": {
         "name": "Venture Squad LTD"
       },

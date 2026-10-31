@@ -3,7 +3,7 @@ name: wj-gh
 description: End-to-end GitHub change workflow — scope → optional issue → branch → commit (with tests) → open PR → watch CI → respond to a code-review bot → fix mechanical CI failures → reply to review comments inline → merge. Optional issue-first and journal-entry steps. Works with any GitHub repo; treats CodeRabbit (or any review bot) as an optional integration.
 metadata:
   author: Venture Squad LTD
-  version: "0.1"
+  version: "0.2"
 ---
 
 You are handling a `/wj-gh` invocation. The user is preparing to open (or has just opened) a pull request and wants the workflow driven from change to merge — and once a PR is open, wants this skill (and the agent it's loaded in) to watch CI and any code-review bot and respond to whatever lands without further prompting. The skill never opens or merges a PR on its own; acting on a check (bumping a version, fixing a review comment, retrying a failed CI job) is the agent's job, and merging is the user's call.
@@ -72,6 +72,7 @@ Updating docs **before** writing code makes them serve as your spec — discrepa
 - [ ] **Tests come with the code, not after.** Use the closest existing test file as a template.
 - [ ] **Each logically separate surface lands in its own commit** if it's reviewable separately.
 - [ ] **No security threats introduced.** Validate input at every system boundary; never trust client-supplied data server-side. No committed secrets.
+- [ ] **UI change? Drive it in a real browser before calling it done.** Type checks and tests verify the code, not the feature. See **Browser verification** below; if you couldn't test in a browser, say so in the PR body.
 
 ### 7. Pre-push validation
 
@@ -191,6 +192,50 @@ For each review round:
 - ❌ Posting a top-level reply — the bot ignores those for learning.
 - ❌ Silently fixing without replying — leaves the review in Request Changes for human reviewers.
 - ❌ Long, defensive replies — be terse; state the convention, point at the file, move on.
+
+## Browser verification
+
+The browser tool is [`agent-browser`](https://github.com/vercel-labs/agent-browser): a native CLI that drives Chrome over CDP and returns accessibility-tree snapshots with `@eN` refs, so one check costs a few hundred tokens instead of a screenshot round-trip. It works the same on macOS, Linux and inside WSL2.
+
+### Setup (once per machine)
+
+```sh
+npm i -g agent-browser && agent-browser install   # downloads Chrome for Testing; an existing Chrome / Playwright / Puppeteer install is picked up instead
+agent-browser doctor                              # must end with a passing "Headless launch"
+agent-browser skills get core                     # the usage guide for the installed version; read it before the first run
+```
+
+### The loop
+
+```sh
+export AGENT_BROWSER_SESSION="$(agent-browser session id --scope worktree --prefix wj)"  # your own session, never the shared default; concurrent agents in one worktree need different prefixes
+agent-browser open http://localhost:5173/some/page
+agent-browser snapshot -i          # interactive elements with refs
+agent-browser click @e3
+agent-browser snapshot -i          # again after any navigation or page change; earlier refs may be stale
+agent-browser fill @e5 "text"
+agent-browser screenshot /path/to/after.png
+agent-browser close
+```
+
+- Start every backend the UI needs before opening it. A page that renders its chrome while every request fails proves nothing.
+- Headless is the default; `--headed` shows the window when the user wants to watch.
+- Check the golden path and the empty, loading and error states, then the adjacent features that share the component or its state.
+
+### Reusing a signed-in browser
+
+When the flow needs a session you can't script (SSO, Cloudflare Access, a paid account), attach to the user's own browser instead of signing in again. It must run with `--remote-debugging-port=<port>`. Chrome 136 and later ignore that flag on the default profile, so start the browser with a separate `--user-data-dir` and sign in there; other Chromium browsers may still accept it on the default profile. Then:
+
+```sh
+agent-browser --session <name> --cdp <port> --pin-tab open <url>   # opens its own tab and pins the session to it (sticky)
+agent-browser --session <name> tab list                             # the user's tabs are still as they were
+```
+
+Without `--pin-tab`, `open` navigates whatever tab is active, and a session whose tab was closed falls back to another one; with it, commands fail with `tab_gone` instead. In someone else's browser: work only in the tab you opened, never navigate or close the tabs you found, and never print cookies, tokens or storage values (move them through a shell variable if a copy is unavoidable). Use staging for checks that write data; treat production as read-only unless the user has confirmed the exact create, update or delete. `close` on an attached session detaches and leaves the browser running.
+
+### WSL2
+
+Run agent-browser inside WSL, not through Windows wrappers. Headless needs no display; `--headed` works through WSLg when `DISPLAY` is set. Attaching to a browser on the Windows host needs mirrored networking (`networkingMode=mirrored` in `%USERPROFILE%\.wslconfig`): the host's `127.0.0.1:<port>` is then reachable from WSL, and `--cdp <port>` (which always means the Linux loopback) finds it. Under the default NAT mode the host's loopback is unreachable, and binding CDP to a non-loopback address is not a fix, because CDP has no authentication. Switch to mirrored mode or run the browser inside WSL instead.
 
 ## Notes
 
